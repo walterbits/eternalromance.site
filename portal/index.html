@@ -11,23 +11,129 @@
   <title>Minha VSL</title>
 
   <!-- 
-    CÓDIGO DE OTIMIZAÇÃO DO VTURB / CONVERTEAI
+    OTIMIZAÇÃO DO VTURB / CONVERTEAI
 
-    Esse bloco deve ficar dentro do <head>.
-    Ele ajuda o vídeo carregar mais rápido.
+    Esse bloco ajuda o player carregar mais rápido.
+    Como seu vídeo é um AB Test, o caminho correto precisa ser /ab-test/.
   -->
+  <script>
+    !function(i,n){
+      i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())
+    }(window,performance);
+  </script>
 
-  <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
-<link rel="preload" href="https://scripts.converteai.net/a74b87d4-c40b-40d0-90db-c7f5485873a8/ab-test/6a3c209e99103457bcc05b44/player.js" as="script">
-<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-<link rel="dns-prefetch" href="https://cdn.converteai.net">
-<link rel="dns-prefetch" href="https://scripts.converteai.net">
-<link rel="dns-prefetch" href="https://images.converteai.net">
-<link rel="dns-prefetch" href="https://m3u8.vturb.net">
-<link rel="dns-prefetch" href="https://license.vturb.com">
+  <!-- Preload correto do AB Test VTurb -->
+  <link rel="preload" href="https://scripts.converteai.net/a74b87d4-c40b-40d0-90db-c7f5485873a8/ab-test/6a3c209e99103457bcc05b44/player.js" as="script">
 
-   <!-- UTMIFY -->
-  <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
+  <!-- Preload da biblioteca do SmartPlayer -->
+  <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+
+  <!-- DNS Prefetch para acelerar conexão com servidores externos -->
+  <link rel="dns-prefetch" href="https://cdn.converteai.net">
+  <link rel="dns-prefetch" href="https://scripts.converteai.net">
+  <link rel="dns-prefetch" href="https://images.converteai.net">
+  <link rel="dns-prefetch" href="https://m3u8.vturb.net">
+  <link rel="dns-prefetch" href="https://license.vturb.com">
+
+  <!-- UTMIFY -->
+  <script 
+    src="https://cdn.utmify.com.br/scripts/utms/latest.js" 
+    data-utmify-prevent-xcod-sck 
+    data-utmify-prevent-subids 
+    async 
+    defer>
+  </script>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;
+    n.push=n;
+    n.loaded=!0;
+    n.version='2.0';
+    n.queue=[];
+    t=b.createElement(e);
+    t.async=!0;
+    t.src=v;
+    s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}
+    (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '1008555880852696');
+    fbq('init', '1575656957036278');
+    fbq('track', 'PageView');
+  </script>
+  <!-- End Meta Pixel -->
+
+  <!-- Google Tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DG4WVV0063"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag(){
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-DG4WVV0063');
+  </script>
+  <!-- End Google Tag -->
+
+  <!-- TikTok Pixel Code Start -->
+  <script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject=t;
+      var ttq=w[t]=w[t]||[];
+
+      ttq.methods=[
+        "page","track","identify","instances","debug","on","off","once",
+        "ready","alias","group","enableCookie","disableCookie",
+        "holdConsent","revokeConsent","grantConsent"
+      ];
+
+      ttq.setAndDefer=function(t,e){
+        t[e]=function(){
+          t.push([e].concat(Array.prototype.slice.call(arguments,0)))
+        }
+      };
+
+      for(var i=0;i<ttq.methods.length;i++){
+        ttq.setAndDefer(ttq,ttq.methods[i]);
+      }
+
+      ttq.instance=function(t){
+        for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++){
+          ttq.setAndDefer(e,ttq.methods[n]);
+        }
+        return e;
+      };
+
+      ttq.load=function(e,n){
+        var r="https://analytics.tiktok.com/i18n/pixel/events.js";
+        ttq._i=ttq._i||{};
+        ttq._i[e]=[];
+        ttq._i[e]._u=r;
+        ttq._t=ttq._t||{};
+        ttq._t[e]=+new Date;
+        ttq._o=ttq._o||{};
+        ttq._o[e]=n||{};
+
+        n=document.createElement("script");
+        n.type="text/javascript";
+        n.async=!0;
+        n.src=r+"?sdkid="+e+"&lib="+t;
+
+        e=document.getElementsByTagName("script")[0];
+        e.parentNode.insertBefore(n,e);
+      };
+
+      ttq.load('D92QKURC77UDPAPRFGN0');
+      ttq.page();
+    }(window, document, 'ttq');
+  </script>
+  <!-- TikTok Pixel Code End -->
 
   <style>
     /*
@@ -42,7 +148,9 @@
 
     /*
       CONFIGURAÇÃO GERAL DA PÁGINA
-      Aqui você altera o fundo, fonte e cor principal.
+
+      background: altera a cor de fundo da página.
+      padding: cria espaço interno para não colar nas bordas do celular.
     */
     body {
       min-height: 100vh;
@@ -58,7 +166,7 @@
 
     /*
       CONTAINER PRINCIPAL DA PÁGINA
-      Tudo da VSL fica dentro dele.
+      Controla a largura geral do conteúdo.
     */
     .vsl-container {
       width: 100%;
@@ -68,7 +176,7 @@
 
     /*
       ÁREA DO VÍDEO
-      Centraliza o player do VTurb na tela.
+      Centraliza o player do VTurb.
     */
     .video-area {
       width: 100%;
@@ -79,7 +187,14 @@
 
     /*
       CAIXA DO VÍDEO
-      Aqui você controla a moldura do vídeo.
+
+      max-width controla a largura máxima do vídeo.
+
+      Para vídeo vertical:
+      400px até 430px fica bom.
+
+      Para vídeo horizontal:
+      troque para 700px, 800px ou 900px.
     */
     .video-box {
       width: 100%;
@@ -93,7 +208,7 @@
 
     /*
       PLAYER DO VTURB
-      Esse ajuste força o player a ocupar bem o espaço disponível.
+      Força o player ocupar o espaço disponível dentro da caixa.
     */
     vturb-smartplayer {
       width: 100% !important;
@@ -103,20 +218,8 @@
     }
 
     /*
-      TEXTO ABAIXO DO VÍDEO
-      Pode ser usado para aviso ou instrução.
-      Se não quiser nenhum texto, deixe comentado ou apague o bloco no HTML.
-    */
-    .vsl-text {
-      margin-top: 18px;
-      font-size: 16px;
-      color: #d1d5db;
-      line-height: 1.5;
-    }
-
-    /*
       RESPONSIVIDADE PARA CELULAR
-      Ajusta espaçamentos em telas menores.
+      Ajusta o vídeo em telas menores.
     */
     @media (max-width: 768px) {
       body {
@@ -132,85 +235,33 @@
         max-width: 100%;
         border-radius: 8px;
       }
-
-      .vsl-text {
-        font-size: 14px;
-      }
     }
   </style>
 </head>
 
 <body>
 
-    <!-- Meta Pixel -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1008555880852696');
-  fbq('init', '1575656957036278');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1008555880852696&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel -->
+  <!-- 
+    Meta Pixel para navegador com JavaScript desativado.
+    Coloquei os dois pixels que você inicializou no código.
+  -->
+  <noscript>
+    <img 
+      height="1" 
+      width="1" 
+      style="display:none"
+      src="https://www.facebook.com/tr?id=1008555880852696&ev=PageView&noscript=1"
+    >
+  </noscript>
 
-   <!-- Google tag -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DG4WVV0063"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-DG4WVV0063');
-  </script>
-
-  <!-- TikTok Pixel Code Start -->
-<script>
-!function (w, d, t) {
-  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-
-
-  ttq.load('D92QKURC77UDPAPRFGN0');
-  ttq.page();
-}(window, document, 'ttq');
-</script>
-<!-- TikTok Pixel Code End -->
-
-    <!-- Back redirect -->
-  <script>
-    const link = 'https://romancenet.site//backh/?src=saidadapv';
-    function setBackRedirect(url) {
-      let urlBackRedirect = url.trim();
-      const currentParams = document.location.search.replace('?', '');
-      if (currentParams) {
-        urlBackRedirect += (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') + currentParams;
-      }
-      if (window.history && window.history.pushState) {
-        for (let i = 0; i < 3; i++) { history.pushState(null, '', location.href); }
-        window.addEventListener('popstate', function() {
-          history.pushState(null, '', location.href);
-          setTimeout(function() { window.location.href = urlBackRedirect; }, 10);
-        }, false);
-        window.addEventListener('pageshow', function(e) {
-          if (e.persisted) { history.pushState(null, '', location.href); }
-        });
-      }
-    }
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', function() { setBackRedirect(link); });
-    } else {
-      setBackRedirect(link);
-    }
-  </script>
-
+  <noscript>
+    <img 
+      height="1" 
+      width="1" 
+      style="display:none"
+      src="https://www.facebook.com/tr?id=1575656957036278&ev=PageView&noscript=1"
+    >
+  </noscript>
 
   <!-- 
     CONTAINER PRINCIPAL
@@ -226,24 +277,15 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
       <!-- 
         CAIXA DO VÍDEO
-
-        Para vídeo vertical igual ao print, use:
-        max-width: 400px até 430px;
-
-        Para vídeo horizontal, altere no CSS:
-        .video-box { max-width: 700px; }
-        .video-box { max-width: 900px; }
+        Para alterar tamanho, mexa no max-width da classe .video-box no CSS.
       -->
       <div class="video-box">
 
         <!-- 
-          PLAYER DO VTURB
+          PLAYER DO VTURB AB TEST
 
-          Para trocar o vídeo futuramente:
-          Substitua o id do player abaixo pelo novo id gerado no VTurb.
-
-          Atual:
-          vid-6a47c9929c6df2bec191f6b6
+          Esse ID precisa combinar com o script:
+          ab-6a3c209e99103457bcc05b44
         -->
         <vturb-smartplayer 
           id="ab-6a3c209e99103457bcc05b44" 
@@ -258,27 +300,68 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
       </div>
     </section>
 
-    <!-- 
-      TEXTO OPCIONAL ABAIXO DO VÍDEO
-
-      Se quiser adicionar uma frase abaixo do vídeo,
-      remova o comentário e escreva o texto.
-
-      Exemplo:
-      <p class="vsl-text">Assista ao vídeo até o final.</p>
-    -->
-
   </main>
 
   <!-- 
-    SCRIPT DO PLAYER VTURB
+    BACK REDIRECT
 
-    Esse script carrega o player.
-    Ele deve ficar no final do body para não travar o carregamento inicial da página.
+    Link corrigido:
+    Antes estava com duas barras depois do domínio.
+    Agora está assim:
+    https://romancenet.site/backh/?src=saidadapv
+  -->
+  <script>
+    const link = 'https://romancenet.site/backh/?src=saidadapv';
+
+    function setBackRedirect(url) {
+      let urlBackRedirect = url.trim();
+
+      const currentParams = document.location.search.replace('?', '');
+
+      if (currentParams) {
+        urlBackRedirect += (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') + currentParams;
+      }
+
+      if (window.history && window.history.pushState) {
+        for (let i = 0; i < 3; i++) {
+          history.pushState(null, '', location.href);
+        }
+
+        window.addEventListener('popstate', function() {
+          history.pushState(null, '', location.href);
+
+          setTimeout(function() {
+            window.location.href = urlBackRedirect;
+          }, 10);
+        }, false);
+
+        window.addEventListener('pageshow', function(e) {
+          if (e.persisted) {
+            history.pushState(null, '', location.href);
+          }
+        });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        setBackRedirect(link);
+      });
+    } else {
+      setBackRedirect(link);
+    }
+  </script>
+
+  <!-- 
+    SCRIPT CORRETO DO PLAYER VTURB AB TEST
+
+    Esse era o erro principal.
+    O script precisa carregar /ab-test/.../player.js,
+    não /players/.../v4/player.js.
   -->
   <script type="text/javascript">
     var s = document.createElement("script");
-    s.src = "https://scripts.converteai.net/a74b87d4-c40b-40d0-90db-c7f5485873a8/players/6a3c209e99103457bcc05b44/v4/player.js";
+    s.src = "https://scripts.converteai.net/a74b87d4-c40b-40d0-90db-c7f5485873a8/ab-test/6a3c209e99103457bcc05b44/player.js";
     s.async = true;
     document.head.appendChild(s);
   </script>
