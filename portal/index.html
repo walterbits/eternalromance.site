@@ -230,21 +230,22 @@
       RESPONSIVIDADE PARA CELULAR
       Ajusta o vídeo em telas menores.
     */
-    @media (max-width: 768px) {
-      body {
-        padding: 12px;
-        align-items: flex-start;
-      }
+@media (max-width: 768px) {
+  body {
+    padding: 12px;
+    padding-top: 80px; /* DESCE O VÍDEO NO MOBILE */
+    align-items: flex-start;
+  }
 
-      .vsl-container {
-        margin-top: 10px;
-      }
+  .vsl-container {
+    margin-top: 0;
+  }
 
-      .video-box {
-        max-width: 100%;
-        border-radius: 8px;
-      }
-    }
+  .video-box {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+}
   </style>
 </head>
 
